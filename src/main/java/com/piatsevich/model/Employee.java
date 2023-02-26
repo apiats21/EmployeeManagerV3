@@ -55,7 +55,7 @@ public class Employee {
     }
 
     public Department getDepartment() {
-        return department;
+        return this.department;
     }
 
     public void setDepartment(Department department) {

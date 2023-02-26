@@ -3,14 +3,11 @@ package com.piatsevich.model;
 import javax.persistence.*;
 import java.util.List;
 
-// TODO vid 177 add (Employee employee){}
-
-
 @Entity
 @Table(name = "departments")
 public class Department {
     @Id
-    @Column(name = "employee_id")
+    @Column(name = "department_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "dep_name")
@@ -18,7 +15,8 @@ public class Department {
     @Column(name = "dep_location")
     private String location;
 
-    @OneToMany(mappedBy = "department", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "department", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH} )
     List<Employee> employees;
 
@@ -71,7 +69,7 @@ public class Department {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
-                ", employees=" + employees +
+                ", employees="  +
                 '}';
     }
 }

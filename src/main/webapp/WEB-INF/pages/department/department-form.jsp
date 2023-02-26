@@ -11,9 +11,9 @@
 <body>
 
     <div id="container">
-        <h3>Save Employee </h3>
+        <h3>Save Department </h3>
 
-        <form:form action="saveEmployee" modelAttribute="employee" method="POST">
+        <form:form action="saveDepartment" modelAttribute="department" method="POST">
 
         			<!-- need to associate this data with customer id -->
         			<form:hidden path="id" />
@@ -21,18 +21,14 @@
         			<table>
         				<tbody>
         					<tr>
-        						<td><label>First name:</label></td>
-        						<td><form:input path="username" /></td>
+        						<td><label>Name:</label></td>
+        						<td><form:input path="name" /></td>
         					</tr>
 
         					<tr>
-        						<td><label>Last name:</label></td>
-        						<td><form:input path="email" /></td>
+        						<td><label>Location:</label></td>
+        						<td><form:input path="location" /></td>
         					</tr>
-        					<tr>
-                            <td><label>Department id:</label></td>
-                            <td><form:input path="department.id" /></td>
-                            </tr>
 
         					<tr>
         						<td><label></label></td>

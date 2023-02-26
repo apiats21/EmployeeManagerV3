@@ -1,6 +1,8 @@
 package com.piatsevich.controller;
 
+import com.piatsevich.model.Department;
 import com.piatsevich.model.Employee;
+import com.piatsevich.service.DepartmentService;
 import com.piatsevich.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private DepartmentService departmentService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listEmployees(Model model){
@@ -31,7 +35,11 @@ public class EmployeeController {
 
     @RequestMapping(value = "/showFormForUpdate", method = RequestMethod.GET)
     public String showFormForUpdate(@RequestParam("employee_id") Integer id, Model model) {
+        Department department = departmentService.getById(1);
         Employee employee = employeeService.getById(id);
+//        Department department = departmentService.getById(employee.getDepartment().getId());
+
+        employee.setDepartment(department);
         model.addAttribute("employee", employee);
 
         return "employee/employee-form";
