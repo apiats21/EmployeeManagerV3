@@ -15,10 +15,6 @@ import java.util.List;
 @Transactional
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-
-
-
-
     @Autowired
     private SessionFactory sessionFactory;
 

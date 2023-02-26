@@ -19,10 +19,10 @@ public class EmployeeController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listEmployees(Model model){
-        model.addAttribute("employee", new Employee());
-        model.addAttribute("listEmployees", this.employeeService.getAll());
+//        model.addAttribute("employee", new Employee());
+        model.addAttribute("employees", this.employeeService.getAll());
 
-        return "employees";
+        return "employee/list-employee";
     }
 
     @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
