@@ -19,13 +19,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     private SessionFactory sessionFactory;
 
     @Override
-    public Employee getById(Integer integer) {
-        return null;
+    public Employee getById(Integer id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Employee employee = (Employee) currentSession.get(Employee.class, id);
+
+        return employee;
     }
 
     @Override
     public Employee save(Employee employee) {
-        return null;
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.save(employee);
+
+        return employee;
     }
 
     @Override
@@ -41,6 +49,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee update(Employee employee) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+
+
         return null;
     }
 

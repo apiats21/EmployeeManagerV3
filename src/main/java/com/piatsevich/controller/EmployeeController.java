@@ -5,10 +5,7 @@ import com.piatsevich.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/employees")
@@ -19,10 +16,26 @@ public class EmployeeController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listEmployees(Model model){
-//        model.addAttribute("employee", new Employee());
         model.addAttribute("employees", this.employeeService.getAll());
 
         return "employee/list-employee";
+    }
+
+
+    @RequestMapping(value = "/showFormForAdd", method = RequestMethod.GET)
+    public String showFormForAdd(Model model) {
+        Employee employee = new Employee();
+
+        model.addAttribute("employee", employee);
+        return "employee/employee-form";
+    }
+
+    @RequestMapping(value = "/showFormForUpdate", method = RequestMethod.GET)
+    public String showFormForUpdate(@RequestParam("employee_id") Integer id, Model model) {
+        Employee employee = employeeService.getById(id);
+        model.addAttribute("employee", employee);
+
+        return "employee/employee-form";
     }
 
     @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
@@ -32,7 +45,7 @@ public class EmployeeController {
         } else {
             this.employeeService.update(employee);
         }
-        return "redirect:/employees";
+        return "redirect:/";
     }
 
     @RequestMapping("/remove/{id}")
@@ -40,4 +53,12 @@ public class EmployeeController {
         this.employeeService.delete(id);
         return "redirect:/employees";
     }
+
+    @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+        employeeService.create(employee);
+        return "redirect:/employees/list";
+    }
+
+
 }
