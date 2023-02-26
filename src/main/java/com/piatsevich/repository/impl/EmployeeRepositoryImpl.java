@@ -49,15 +49,17 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee update(Employee employee) {
-        Session currentSession = sessionFactory.getCurrentSession();
-
-
-
         return null;
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Integer id) {
+        Session currentSession = sessionFactory.getCurrentSession();
 
+        Query query =
+                currentSession.createQuery("delete from Employee where id=:employeeId");
+        query.setParameter("employeeId", id);
+
+        query.executeUpdate();
     }
 }

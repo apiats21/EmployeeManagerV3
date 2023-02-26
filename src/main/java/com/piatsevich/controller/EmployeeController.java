@@ -21,7 +21,6 @@ public class EmployeeController {
         return "employee/list-employee";
     }
 
-
     @RequestMapping(value = "/showFormForAdd", method = RequestMethod.GET)
     public String showFormForAdd(Model model) {
         Employee employee = new Employee();
@@ -38,20 +37,20 @@ public class EmployeeController {
         return "employee/employee-form";
     }
 
-    @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
-    public String addEmployee(@ModelAttribute("employee") Employee employee) {
-        if(employee.getId() == 0) {
-            this.employeeService.create(employee);
-        } else {
-            this.employeeService.update(employee);
-        }
-        return "redirect:/";
-    }
+//    @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
+//    public String addEmployee(@ModelAttribute("employee") Employee employee) {
+//        if(employee.getId() == 0) {
+//            this.employeeService.create(employee);
+//        } else {
+//            this.employeeService.update(employee);
+//        }
+//        return "redirect:/";
+//    }
 
-    @RequestMapping("/remove/{id}")
-    public String removeEmployee(@PathVariable("id") Integer id) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteEmployee(@RequestParam("employee_id") Integer id) {
         this.employeeService.delete(id);
-        return "redirect:/employees";
+        return "redirect:/employees/list";
     }
 
     @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
@@ -59,6 +58,4 @@ public class EmployeeController {
         employeeService.create(employee);
         return "redirect:/employees/list";
     }
-
-
 }

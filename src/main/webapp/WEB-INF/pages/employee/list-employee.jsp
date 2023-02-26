@@ -31,11 +31,18 @@
             <c:param name="employee_id" value="${tempEmployee.id}" />
         </c:url>
 
+        <!-- construct an "delete" link with customer id -->
+        <c:url var="deleteLink" value="/employees/delete">
+        	<c:param name="employee_id" value="${tempEmployee.id}" />
+        </c:url>
+
             <tr>
                 <td> <c:out value="${tempEmployee.username}" /></td>
                 <td> <c:out value="${tempEmployee.email}" /></td>
                 <td> <a href="${updateLink}"> Update</a>
                 |
+                <a href="${deleteLink}"
+                onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
             </tr>
 
         </c:forEach>
