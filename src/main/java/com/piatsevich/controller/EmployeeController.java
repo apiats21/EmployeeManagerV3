@@ -35,10 +35,9 @@ public class EmployeeController {
 
     @RequestMapping(value = "/showFormForUpdate", method = RequestMethod.GET)
     public String showFormForUpdate(@RequestParam("employee_id") Integer id, Model model) {
-        Department department = departmentService.getById(1);
         Employee employee = employeeService.getById(id);
-//        Department department = departmentService.getById(employee.getDepartment().getId());
-
+        Department department = departmentService.getById(employee.getDepartment().getId());
+//////
         employee.setDepartment(department);
         model.addAttribute("employee", employee);
 
