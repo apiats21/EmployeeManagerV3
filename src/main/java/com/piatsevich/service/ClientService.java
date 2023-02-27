@@ -1,17 +1,17 @@
 package com.piatsevich.service;
 
-import com.piatsevich.model.Chat;
+import com.piatsevich.model.Client;
 
 import java.util.List;
 
 public interface ClientService {
-    public Chat getById(Integer id);
+    public Client getById(Integer id);
 
-    public Chat create(Chat chat);
+    public Client create(Client client);
 
-    public List<Chat> getAll();
+    public List<Client> getAll();
 
-    public Chat update(Chat chat);
+    public Client update(Client client);
 
     public void delete(Integer id);
 }
