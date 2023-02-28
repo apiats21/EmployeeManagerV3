@@ -45,7 +45,6 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
         Session currentSession = sessionFactory.getCurrentSession();
 
         Query theQuery = currentSession.createQuery("from Department");
-        System.out.printf(theQuery.getQueryString());
 
         List<Department> departments = theQuery.list();
 
