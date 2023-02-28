@@ -15,8 +15,12 @@ import java.util.List;
 @Transactional
 public class ClientRepositoryImpl implements ClientRepository {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public ClientRepositoryImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Client getById(Integer id) {

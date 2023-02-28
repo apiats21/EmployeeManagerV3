@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/chats")
 public class ChatController {
 
-    @Autowired
     private ChatService chatService;
+
+    @Autowired
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listChats(Model model){

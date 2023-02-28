@@ -15,8 +15,12 @@ import java.util.List;
 @Transactional
 public class ProjectRepositoryImpl implements ProjectRepository {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public ProjectRepositoryImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Project getById(Integer id) {

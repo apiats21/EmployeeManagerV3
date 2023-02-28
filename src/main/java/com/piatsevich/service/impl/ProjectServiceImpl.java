@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
-    @Autowired
     ProjectRepository projectRepository;
+
+    @Autowired
+    public ProjectServiceImpl(ProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
+    }
 
     @Override
     public Project getById(Integer id) {

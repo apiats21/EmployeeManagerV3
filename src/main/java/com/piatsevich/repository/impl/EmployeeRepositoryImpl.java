@@ -15,8 +15,12 @@ import java.util.List;
 @Transactional
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public EmployeeRepositoryImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Employee getById(Integer id) {

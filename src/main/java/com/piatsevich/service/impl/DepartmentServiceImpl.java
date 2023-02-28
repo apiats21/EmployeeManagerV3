@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    @Autowired
     DepartmentRepository departmentRepository;
+
+    @Autowired
+    public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
+        this.departmentRepository = departmentRepository;
+    }
 
     @Override
     public Department getById(Integer id) {

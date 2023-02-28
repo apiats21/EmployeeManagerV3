@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/clients")
 public class ClientController {
 
-    @Autowired
     private ClientService clientService;
 
+    @Autowired
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listClients(Model model){

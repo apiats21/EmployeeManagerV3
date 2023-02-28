@@ -15,8 +15,12 @@ import java.util.List;
 @Transactional
 public class DepartmentRepositoryImpl implements DepartmentRepository {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public DepartmentRepositoryImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Department getById(Integer id) {

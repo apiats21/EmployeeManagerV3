@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class ChatServiceImpl implements ChatService {
 
-    @Autowired
     ChatRepository chatRepository;
+
+    @Autowired
+    public ChatServiceImpl(ChatRepository chatRepository) {
+        this.chatRepository = chatRepository;
+    }
 
     @Override
     public Chat getById(Integer id) {

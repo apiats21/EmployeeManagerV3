@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/employees")
 public class EmployeeController {
 
-    @Autowired
     private EmployeeService employeeService;
-    @Autowired
     private DepartmentService departmentService;
+
+    @Autowired
+    public EmployeeController(EmployeeService employeeService, DepartmentService departmentService) {
+        this.employeeService = employeeService;
+        this.departmentService = departmentService;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listEmployees(Model model){

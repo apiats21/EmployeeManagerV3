@@ -15,8 +15,12 @@ import java.util.List;
 @Transactional
 public class ChatRepositoryImpl implements ChatRepository {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public ChatRepositoryImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Chat getById(Integer id) {

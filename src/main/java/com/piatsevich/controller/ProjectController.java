@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/projects")
 public class ProjectController {
 
-    @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listProjects(Model model){
