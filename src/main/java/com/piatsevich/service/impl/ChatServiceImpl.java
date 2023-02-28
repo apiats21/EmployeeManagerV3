@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ChatServiceImpl implements ChatService {
 
-    ChatRepository chatRepository;
+    private ChatRepository chatRepository;
 
     @Autowired
     public ChatServiceImpl(ChatRepository chatRepository) {

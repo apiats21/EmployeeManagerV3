@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @Autowired
     public DepartmentServiceImpl(DepartmentRepository departmentRepository) {

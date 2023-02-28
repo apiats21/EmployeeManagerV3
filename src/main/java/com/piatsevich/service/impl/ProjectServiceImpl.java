@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
-    ProjectRepository projectRepository;
+    private ProjectRepository projectRepository;
 
     @Autowired
     public ProjectServiceImpl(ProjectRepository projectRepository) {
