@@ -1,9 +1,7 @@
 package com.piatsevich.controller;
 
 import com.piatsevich.model.Department;
-import com.piatsevich.model.Employee;
 import com.piatsevich.service.DepartmentService;
-import com.piatsevich.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +45,6 @@ public class DepartmentController {
         return "department/department-form";
     }
 
-
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteDepartment(@RequestParam("department_id") Integer id) {
         this.departmentService.delete(id);
@@ -59,6 +56,4 @@ public class DepartmentController {
         departmentService.create(department);
         return "redirect:/departments/list";
     }
-
-
 }

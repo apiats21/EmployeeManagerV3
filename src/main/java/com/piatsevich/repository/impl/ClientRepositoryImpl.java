@@ -1,9 +1,7 @@
 package com.piatsevich.repository.impl;
 
 import com.piatsevich.model.Client;
-import com.piatsevich.model.Employee;
 import com.piatsevich.repository.ClientRepository;
-import com.piatsevich.repository.EmployeeRepository;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

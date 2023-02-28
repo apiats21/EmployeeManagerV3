@@ -37,22 +37,11 @@ public class EmployeeController {
     public String showFormForUpdate(@RequestParam("employee_id") Integer id, Model model) {
         Employee employee = employeeService.getById(id);
         Department department = departmentService.getById(employee.getDepartment().getId());
-//////
         employee.setDepartment(department);
         model.addAttribute("employee", employee);
 
         return "employee/employee-form";
     }
-
-//    @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
-//    public String addEmployee(@ModelAttribute("employee") Employee employee) {
-//        if(employee.getId() == 0) {
-//            this.employeeService.create(employee);
-//        } else {
-//            this.employeeService.update(employee);
-//        }
-//        return "redirect:/";
-//    }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteEmployee(@RequestParam("employee_id") Integer id) {

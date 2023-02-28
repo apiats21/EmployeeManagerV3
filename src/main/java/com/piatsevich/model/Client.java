@@ -14,12 +14,6 @@ public class Client {
     @Column(name = "client_email")
     private String email;
 
-//    @ManyToOne(fetch = FetchType.LAZY,
-//            cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-//            CascadeType.DETACH, CascadeType.REFRESH})
-//    @JoinColumn(name = "department_id")
-//    private Department department;
-
     public Client() {
     }
 

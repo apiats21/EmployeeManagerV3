@@ -37,6 +37,5 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void delete(Integer id) {
         departmentRepository.deleteById(id);
-
     }
 }

@@ -12,19 +12,13 @@ public class Chat {
     @Column(name = "chat_name")
     private String name;
 
-//    @ManyToOne(fetch = FetchType.LAZY,
-//            cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-//                    CascadeType.DETACH, CascadeType.REFRESH})
-//    @JoinColumn(name = "creator_id")
-//    private Employee employee;
-
     public Chat() {
     }
 
-    public Chat(Integer id, String name, Employee employee) {
+
+    public Chat(Integer id, String name) {
         this.id = id;
         this.name = name;
-//        this.employee = employee;
     }
 
     public Integer getId() {
@@ -42,14 +36,6 @@ public class Chat {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public Employee getEmployee() {
-//        return employee;
-//    }
-//
-//    public void setEmployee(Employee employee) {
-//        this.employee = employee;
-//    }
 
     @Override
     public String toString() {

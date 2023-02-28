@@ -1,6 +1,5 @@
 package com.piatsevich.controller;
 
-
 import com.piatsevich.model.Project;
 import com.piatsevich.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +29,7 @@ public class ProjectController {
         Project project = new Project();
 
         model.addAttribute("project", project);
+
         return "project/project-form";
     }
 
@@ -40,16 +40,6 @@ public class ProjectController {
 
         return "project/project-form";
     }
-
-//    @RequestMapping(value = "/employees/add", method = RequestMethod.POST)
-//    public String addEmployee(@ModelAttribute("employee") Employee employee) {
-//        if(employee.getId() == 0) {
-//            this.employeeService.create(employee);
-//        } else {
-//            this.employeeService.update(employee);
-//        }
-//        return "redirect:/";
-//    }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteProject(@RequestParam("project_id") Integer id) {

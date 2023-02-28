@@ -12,13 +12,6 @@ public class Project {
     @Column(name = "project_name")
     private String name;
 
-
-//    @ManyToOne(fetch = FetchType.LAZY,
-//            cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-//            CascadeType.DETACH, CascadeType.REFRESH})
-//    @JoinColumn(name = "department_id")
-//    private Department department;
-
     public Project() {
     }
 
