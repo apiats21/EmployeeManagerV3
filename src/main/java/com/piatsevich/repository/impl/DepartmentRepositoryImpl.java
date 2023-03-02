@@ -35,7 +35,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     public Department save(Department department) {
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(department);
+        currentSession.saveOrUpdate(department);
 
         return department;
     }

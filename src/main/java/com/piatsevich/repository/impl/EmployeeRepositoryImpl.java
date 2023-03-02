@@ -35,7 +35,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public Employee save(Employee employee) {
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(employee);
+        currentSession.saveOrUpdate(employee);
 
         return employee;
     }

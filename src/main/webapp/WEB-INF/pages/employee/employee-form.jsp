@@ -26,7 +26,7 @@
         					</tr>
 
         					<tr>
-        						<td><label>Last name:</label></td>
+        						<td><label>Email: </label></td>
         						<td><form:input path="email" /></td>
         					</tr>
         					<tr>

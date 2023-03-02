@@ -35,7 +35,7 @@ public class ChatRepositoryImpl implements ChatRepository {
     public Chat save(Chat chat) {
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(chat);
+        currentSession.saveOrUpdate(chat);
 
         return chat;
     }
