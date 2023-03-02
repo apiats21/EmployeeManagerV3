@@ -35,7 +35,7 @@ public class ClientRepositoryImpl implements ClientRepository {
     public Client save(Client client) {
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(client);
+        currentSession.saveOrUpdate(client);
 
         return client;
     }

@@ -40,8 +40,8 @@ public class EmployeeController {
     @RequestMapping(value = "/showFormForUpdate", method = RequestMethod.GET)
     public String showFormForUpdate(@RequestParam("employee_id") Integer id, Model model) {
         Employee employee = employeeService.getById(id);
-        Department department = departmentService.getById(employee.getDepartment().getId());
-        employee.setDepartment(department);
+//        Department department = departmentService.getById(employee.getDepartment().getId());
+//        employee.setDepartment(department);
         model.addAttribute("employee", employee);
 
         return "employee/employee-form";

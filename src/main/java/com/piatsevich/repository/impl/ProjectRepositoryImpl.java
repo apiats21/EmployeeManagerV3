@@ -35,7 +35,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     public Project save(Project project) {
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(project);
+        currentSession.saveOrUpdate(project);
 
         return project;
     }
