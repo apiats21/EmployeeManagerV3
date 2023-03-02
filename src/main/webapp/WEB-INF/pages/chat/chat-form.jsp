@@ -1,0 +1,42 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isELIgnored="false" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <div id="container">
+        <h3>Save Chat </h3>
+
+        <form:form action="saveChat" modelAttribute="chat" method="POST">
+
+        			<!-- need to associate this data with chat id -->
+        			<form:hidden path="id" />
+
+        			<table>
+        				<tbody>
+        					<tr>
+        						<td><label>Chat name:</label></td>
+        						<td><form:input path="name" /></td>
+        					</tr>
+
+        					<tr>
+        						<td><label></label></td>
+        						<td><input type="submit" value="Save" class="save" /></td>
+        					</tr>
+
+
+        				</tbody>
+        			</table>
+
+
+        		</form:form>
+
+    </div>
+</body>
+</html>
